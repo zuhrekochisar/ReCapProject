@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Entities.Abstract
+namespace DataAccess.Abstract
 {
-   public interface ICarDal
+    public interface ICarDal
     {
         List<Car> GetAll();
         List<Car> GetById(int BrandId);
         void Add(Car car);
         void Update(Car car);
         void Delete(Car car);
-        
+
 
     }
 }

@@ -1,17 +1,18 @@
-﻿using Entities.Abstract;
+﻿using DataAccess.Abstract;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Entities.Concrete.InMemory
+namespace DataAccess.Concrete
 {
-    public class InMemoryCarDal:ICarDal
+    public class InMemoryCarDal : ICarDal
     {
         List<Car> _cars;
 
         public InMemoryCarDal()
-           
+
         {
             _cars = new List<Car>
             {
@@ -20,7 +21,7 @@ namespace Entities.Concrete.InMemory
                 new Car {CarId=3, BrandId =2, ColorId=1, DailyPrice=400, ModelYear=2010, Description="Renault"},
                 new Car {CarId=4, BrandId =3, ColorId=4, DailyPrice=450, ModelYear=2016, Description="Toyota"},
                 new Car {CarId=5, BrandId =4, ColorId=3, DailyPrice=550, ModelYear=2010, Description=" BMW"},
-               
+
             };
         }
         public void Add(Car car)
@@ -36,7 +37,7 @@ namespace Entities.Concrete.InMemory
             carToUpdate.BrandId = car.BrandId;
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.Description = car.Description;
-            
+
         }
         public void Delete(Car car)
         {
@@ -51,7 +52,7 @@ namespace Entities.Concrete.InMemory
 
         public List<Car> GetById(int brandId)
         {
-            return _cars.Where(p=>p.BrandId == brandId).ToList();
+            return _cars.Where(p => p.BrandId == brandId).ToList();
         }
 
     }
