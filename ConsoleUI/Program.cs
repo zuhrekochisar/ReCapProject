@@ -6,12 +6,14 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 
+
 namespace ConsoleUI
 {
     class Program
     {
         static void Main(string[] args)
         {
+            
             ICarService carManager = new CarManager(new InMemoryCarDal());
            
 
@@ -26,4 +28,8 @@ namespace ConsoleUI
          }
     }
     }
+
+//Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\OneDrive\Belgeler\CarRental.accdb
+
+
 
