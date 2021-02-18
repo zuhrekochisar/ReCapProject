@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Abstract;
 using Entities.Concrete;
 using System;
@@ -14,22 +15,27 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             
-            ICarService carManager = new CarManager(new InMemoryCarDal());
-           
+            ICarService carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetAll())
+
+            //foreach (var car in carManager.GetAll())
+            //{
+            //    Console.WriteLine("Model" + "   "+ "Yıl" +"  " + "Fiyat");
+            //    Console.WriteLine(car.Description + " " + car.ModelYear + " " + car.DailyPrice);
+            //    Console.WriteLine("---------------------------------");
+
+            //}
+
+            foreach (var car in carManager.GetAllByBrandId(3))
             {
-                Console.WriteLine("Model" + "   "+ "Yıl" +"  " + "Fiyat");
-                Console.WriteLine(car.Description + " " + car.ModelYear + " " + car.DailyPrice);
-                Console.WriteLine("---------------------------------");
-                
+                Console.WriteLine(car.Description);
             }
             
          }
     }
     }
 
-//Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\OneDrive\Belgeler\CarRental.accdb
+
 
 
 
