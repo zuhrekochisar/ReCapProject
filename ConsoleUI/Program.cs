@@ -18,18 +18,21 @@ namespace ConsoleUI
             ICarService carManager = new CarManager(new EfCarDal());
 
 
+
             //foreach (var car in carManager.GetAll())
             //{
-            //    Console.WriteLine("Model" + "   "+ "Yıl" +"  " + "Fiyat");
-            //    Console.WriteLine(car.Description + " " + car.ModelYear + " " + car.DailyPrice);
+            //    Console.WriteLine("Model" + "   " + "Yıl" + "  " + "Fiyat");
+            //    Console.WriteLine(car.Descriptions + " " + car.ModelYear + " " + car.DailyPrice);
             //    Console.WriteLine("---------------------------------");
 
             //}
 
-            foreach (var car in carManager.GetAllByBrandId(3))
+            foreach (var car in carManager.GetAllByBrandId(2))
             {
-                Console.WriteLine(car.Description);
+                Console.WriteLine(car.Descriptions);
             }
+
+
             
          }
     }
