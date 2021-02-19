@@ -31,6 +31,29 @@ namespace Business.Concrete
         {
             return _carDal.GetAll();
         }
+        public void Add(Car car)
+        {
+            if (car.Descriptions.Length>=2 && car.DailyPrice>0 )
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Lütfen En Az 2 Karakter Giriniz ve Fiyat 0'dan Büyük Olmalıdır");
+            }
+        }
+
+        public void Update(Car car)
+        {
+            if (car.Descriptions.Length >= 2 && car.DailyPrice > 0)
+            {
+                _carDal.Add(car);
+            }
+            else
+            {
+                Console.WriteLine("Lütfen En Az 2 Karakter Giriniz ve Fiyat 0'dan Büyük Olmalıdır");
+            }
+        }
 
         
     }
