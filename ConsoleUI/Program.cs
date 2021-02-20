@@ -56,16 +56,34 @@ namespace ConsoleUI
 
             //}
 
-            foreach (var car in carManager.GetCarDetails())
-            {
-                Console.WriteLine("CarName:"+ car.CarName +" / " +"BrandName:" + car.BrandName + " / " +"ColorName:"+ car.ColorName + " / "+"DailyPrice:" + car.DailyPrice);
-            }
+            //foreach (var car in carManager.GetCarDetails())
+            //{
+            //    Console.WriteLine("CarName:" + car.CarName + " / " + "BrandName:" + car.BrandName + " / " + "ColorName:" + car.ColorName + " / " + "DailyPrice:" + car.DailyPrice);
+            //}
 
 
             //foreach (var car in carManager.GetCarDetails())
             //{
             //    Console.WriteLine(car.CarName + "/" + car.BrandName + "/" + car.ColorName + "/" + car.DailyPrice);
             //}
+
+
+            var result = carManager.GetCarDetails();
+
+            if (result.Success == true)
+            {
+                foreach (var car in result.Data)
+                {
+
+                    Console.WriteLine(car.CarName + "/" + car.BrandName + "/" +car.ColorName);
+
+                }
+
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
         }
     }
     }
