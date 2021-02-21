@@ -15,5 +15,6 @@ namespace Business.Constants
         public static string UserNameDeleted = "Kullanıcı Silindi.";
         public static string UsersListed = "Kullanıcılar Listelendi.";
         public static string UserUpdated = "Kullanıcı Güncellendi.";
+        public static string ErrorRent = "Henüz Teslim Edilmediğinden Kiralama İşlemi Gerçekleştirilemedi.";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,8 +19,17 @@ namespace Business.Concrete
         }
         public IResult Add(Rental rental)
         {
-            _rentalDal.Add(rental);
-            return new SuccessResult();
+            
+
+            if (rental.ReturnDate == null)
+            {
+                return new ErrorResult(Messages.ErrorRent);
+            }
+            else
+            {
+                _rentalDal.Add(rental);
+                return new SuccessResult();
+            }
         }
 
         public IResult Delete(Rental rental)
