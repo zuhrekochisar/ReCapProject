@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,36 +17,63 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        public List<Color> GetAll()
+        //public List<Color> GetAll()
+        //{
+        //    return _colorDal.GetAll();
+        //}
+
+        //public Color GetByColorName(string colorName)
+        //{
+        //    return _colorDal.Get(c => c.ColorName == colorName);
+        //}
+
+        //public Color GetById(int colorId)
+        //{
+        //    return _colorDal.Get(c => c.ColorId == colorId);
+        //}
+
+        //public void Add(Color color)
+        //{
+        //    _colorDal.Add(color);
+        //    Console.WriteLine("Renk Ekleme İşlemi Başarılı");
+        //}
+
+        //public void Update(Color color)
+        //{
+        //    _colorDal.Update(color);
+        //    Console.WriteLine("Renk Güncelleme İşlemi Başarılı");
+        //}
+        //public void Delete(Color color)
+        //{
+        //    _colorDal.Delete(color);
+        //    Console.WriteLine("Renk Silme İşlemi Başarılı");
+        //}
+
+
+
+        IDataResult<List<Color>> IColorService.GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
 
-        public Color GetByColorName(string colorName)
-        {
-            return _colorDal.Get(c => c.ColorName == colorName);
-        }
+        
 
-        public Color GetById(int colorId)
-        {
-            return _colorDal.Get(c => c.ColorId == colorId);
-        }
-
-        public void Add(Color color)
+        IResult IColorService.Add(Color color)
         {
             _colorDal.Add(color);
-            Console.WriteLine("Renk Ekleme İşlemi Başarılı");
+            return new SuccessResult();
         }
 
-        public void Update(Color color)
+        IResult IColorService.Update(Color color)
         {
             _colorDal.Update(color);
-            Console.WriteLine("Renk Güncelleme İşlemi Başarılı");
+            return new SuccessResult();
         }
-        public void Delete(Color color)
+
+        IResult IColorService.Delete(Color color)
         {
             _colorDal.Delete(color);
-            Console.WriteLine("Renk Silme İşlemi Başarılı");
+            return new SuccessResult();
         }
     }
 }

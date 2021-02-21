@@ -9,14 +9,15 @@ namespace Business.Abstract
 {
    public interface IBrandService
     {
-        List<Brand> GetAll();
-        Brand GetById(int id);
+        //List<Brand> GetAll();
+        //Brand GetById(int id);
 
-        //IDataResult<List<Brand>> GetAll();   
-        //IDataResult<List<Brand>> GetAllByBrandId(int id);
-        //IDataResult<List<Brand>> GetByDailyPrice(decimal min, decimal max);
+        IDataResult<List<Brand>> GetAll();
+        IDataResult<List<Brand>> GetAllByBrandId(int id);
 
-        //IDataResult<Brand> GetById(int BrandId);
-        //IResult Add(Brand brand);
+       
+        IResult Add(Brand brand);
+        IResult Update(Brand brand);
+        IResult Delete(Brand brand);
     }
 }

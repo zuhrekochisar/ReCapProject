@@ -12,32 +12,54 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            // CarTest();
             //BrandTest();
 
             //ColorTest();
 
-        }
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            
 
-        private static void ColorTest()
-        {
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-            foreach (var color in colorManager.GetAll())
+
+
+            var result = rentalManager.GetRentalDetails();
+
+            if (result.Success == true)
             {
-                Console.WriteLine(color.ColorName);
+                foreach (var rental in result.Data)
+                {
+
+                    Console.WriteLine(rental.UserFirstName + "/" + rental.UserLastName + "/" + rental.UserEmail);
+
+                }
+
             }
-        }
-
-
-
-        private static void BrandTest()
-        {
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-            foreach (var brand in brandManager.GetAll())
+            else
             {
-                Console.WriteLine(brand.BrandName);
+                Console.WriteLine(result.Message);
             }
+
         }
+
+        //private static void ColorTest()
+        //{
+        //    ColorManager colorManager = new ColorManager(new EfColorDal());
+        //    foreach (var color in colorManager.GetAll())
+        //    {
+        //        Console.WriteLine(color.ColorName);
+        //    }
+        //}
+
+
+
+        //private static void BrandTest()
+        //{
+        //    BrandManager brandManager = new BrandManager(new EfBrandDal());
+        //    foreach (var brand in brandManager.GetAll())
+        //    {
+        //        Console.WriteLine(brand.BrandName);
+        //    }
+        //}
 
         
      
