@@ -17,8 +17,14 @@ namespace ConsoleUI
 
             //ColorTest();
 
+            RentalTest();
+
+        }
+
+        private static void RentalTest()
+        {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            
+
 
 
 
@@ -29,7 +35,7 @@ namespace ConsoleUI
                 foreach (var rental in result.Data)
                 {
 
-                    Console.WriteLine(rental.UserFirstName + "/" + rental.UserLastName + "/" + rental.UserEmail);
+                    Console.WriteLine(rental.UserFirstName + "/" + rental.RentDate + "/" + rental.ReturnDate);
 
                 }
 
@@ -38,7 +44,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-
         }
 
         //private static void ColorTest()
@@ -61,8 +66,8 @@ namespace ConsoleUI
         //    }
         //}
 
-        
-     
+
+
         private static void CarTest()
         {
             ICarService carManager = new CarManager(new EfCarDal());
