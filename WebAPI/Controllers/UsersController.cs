@@ -21,12 +21,65 @@ namespace WebAPI.Controllers
         {
             _userService = userService;
         }
-        [HttpGet]
-        public List<User> Get()
+
+        [HttpGet("getall")]
+
+        public IActionResult GetAll()
         {
-            IUserService userService = new UserManager(new EfUserDal());
-            var result = userService.GetAll();
-            return result.Data;
+
+            var result = _userService.GetAll();
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _userService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(User user)
+        {
+            var result = _userService.Add(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
+        }
+        [HttpPost("update")]
+        public IActionResult Update(User user)
+        {
+            var result = _userService.Update(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(User user)
+        {
+            var result = _userService.Delete(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
         }
     }
 }

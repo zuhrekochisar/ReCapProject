@@ -22,12 +22,65 @@ namespace WebAPI.Controllers
             _brandService = brandService;
         }
 
-        [HttpGet]
-        public List<Brand> Get()
+
+        
+        [HttpGet("getall")]
+
+        public IActionResult GetAll()
         {
-            IBrandService brandService = new BrandManager(new EfBrandDal());
-            var result = brandService.GetAll();
-            return result.Data;
+            
+            var result = _brandService.GetAll();
+            
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpGet("getallbybrandid")]
+        public IActionResult GetAllByBrandId(int id)
+        {
+            var result = _brandService.GetAllByBrandId(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Brand brand)
+        {
+            var result = _brandService.Add(brand);
+            if (result.Success)
+            {    return Ok(result);
+            }
+            return BadRequest(result.Message);
+
+        }
+        [HttpPost("update")]
+        public IActionResult Update(Brand brand)
+        {
+            var result = _brandService.Update(brand);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Brand brand)
+        {
+            var result = _brandService.Delete(brand);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
         }
     }
 }

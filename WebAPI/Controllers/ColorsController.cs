@@ -21,12 +21,56 @@ namespace WebAPI.Controllers
         {
             _colorService = colorService;
         }
-        [HttpGet]
-        public List<Color> Get()
+
+        [HttpGet("getall")]
+
+        public IActionResult GetAll()
         {
-            IColorService colorService = new ColorManager(new EfColorDal());
-            var result = colorService.GetAll();
-            return result.Data;
+
+            var result = _colorService.GetAll();
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+
+        
+
+        [HttpPost("add")]
+        public IActionResult Add(Color color)
+        {
+            var result = _colorService.Add(color);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
+        }
+        [HttpPost("update")]
+        public IActionResult Update(Color color)
+        {
+            var result = _colorService.Update(color);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
+        }
+
+        [HttpPost("delete")]
+        public IActionResult Delete(Color color)
+        {
+            var result = _colorService.Delete(color);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+
         }
     }
 }
