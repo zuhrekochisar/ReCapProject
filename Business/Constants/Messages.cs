@@ -18,5 +18,11 @@ namespace Business.Constants
         public static string ErrorRent = "Henüz Teslim Edilmediğinden Kiralama İşlemi Gerçekleştirilemedi.";
         public static string CarUpdated = "Araç Güncellendi.";
         public static string CarDeleted = "Araç Silindi.";
+        public static string ImageAdded = "Resim Eklendi.";
+        public static string ImageDeleted = "Resim Slindi.";
+        public static string ImageUpdated = "Resim Güncellendi.";
+        public static string CarImageLimitExceeded = "5'ten fazla resim yüklenemez.";
+        public static string CarImageLimitExceededSuccess = "Ekleme Başarılı";
+
     }
 }
