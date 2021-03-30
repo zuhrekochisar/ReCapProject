@@ -20,7 +20,7 @@ namespace DataAccess.Concrete.EntityFramework
                              join u in context.Users on c. UserId equals u.UserId
                              
                              
-                             select new RentalDetailDto { RentalId = r.RentalId, UserFirstName=u.UserFirstName  ,RentDate = r.RentDate, ReturnDate = r.ReturnDate };
+                             select new RentalDetailDto { RentalId = r.RentalId, UserFirstName=u.UserFirstName, RentDate = r.RentDate, ReturnDate = r.ReturnDate };
                 return result.ToList();
             }
         }

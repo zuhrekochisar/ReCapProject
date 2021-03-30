@@ -23,12 +23,7 @@ namespace Business.Concrete
         [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
-            //if (user.UserFirstName.Length < 2)
-            //{
-
-            //    return new ErrorResult(Messages.UserNameInvalid);
-            //}
-
+            
             //ValidationTool.Validate(new UserValidator(), user);
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);

@@ -25,12 +25,11 @@ namespace WebAPI.Controllers
 
         [HttpGet("getall")]
 
-        //public List<Car> Get()
         public IActionResult GetAll()
         {
-            //ICarService carService = new CarManager(new EfCarDal());
+            
 
-            Thread.Sleep(millisecondsTimeout:5000);
+            Thread.Sleep(millisecondsTimeout:1000);
 
             var result = _carService.GetAll();
             //return result.Data;

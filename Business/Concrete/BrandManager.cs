@@ -19,43 +19,6 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
-
-        //public List<Brand> GetAll()
-        //{
-        //    return _brandDal.GetAll();
-        //}
-
-
-
-        //public Brand GetById(int id)
-        //{
-        //    return _brandDal.Get(b => b.BrandId == id);
-        //}
-
-        //public void Add(Brand brand)
-        //{
-           
-        //        _brandDal.Add(brand);
-           
-        //        Console.WriteLine("Ekleme Başarılı.");
-        // }
-
-            
-          
-
-        //public void Update(Brand brand)
-        //{
-            
-        //       _brandDal.Update(brand);
-        //       Console.WriteLine("Güncelleme Gerçekleştirildi.");
-        // }
-
-        //public void Delete(Brand brand)
-        //{
-        //    _brandDal.Delete(brand);
-        //    Console.WriteLine("Silme İşlemi Tamamlandı.");
-        //}
-
         IDataResult<List<Brand>> IBrandService.GetAll()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
